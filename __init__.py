@@ -52,7 +52,7 @@ class Plex:
             logger.debug(res)
             response = res.text
             del res
-            logger.info(response)
+            logger.debug(response)
         except Exception as e:
             logger.exception(e)
 
@@ -63,7 +63,8 @@ class Plex:
             data = {"jsonrpc": "2.0",
                     "id": random.randint(1, 99),
                     "method": "GUI.ShowNotification",
-                    "params": {"title": title, "message": message, "displaytime": self._displayTime, "image": image}
+                    "params": {"title": title, "message": message, "image": image},
+                    "displayTime": self._displayTime
                     }
             for host in self._clients:
                 logger.debug("Plex sending push notification to host {}: {}".format(host, data))
