@@ -20,11 +20,15 @@ import logging
 import json
 import requests
 import random
+from lib.model.smartplugin import SmartPlugin
 
 logger = logging.getLogger('')
 
 
-class Plex:
+class Plex(SmartPlugin):
+    PLUGIN_VERSION = "1.0.0"
+    ALLOW_MULTIINSTANCE = False
+
     def __init__(self, smarthome, displaytime=6000):
         logger.info("Init Plex notifications")
         self._sh = smarthome
