@@ -31,12 +31,12 @@ class Plex(SmartPlugin):
     ALLOW_MULTIINSTANCE = False
 
     def __init__(self, smarthome, displaytime=6000):
-        self._sh = smarthome
         self.logger = logging.getLogger(__name__)
+        self.logger.info("Init Plex notifications")
+        self._sh = smarthome
         self._displayTime = int(displaytime)
         self._images = ["info", "error", "warning"]
         self._clients = []
-        self.logger.info("Init Plex notifications")
 
     def run(self):
         pass
